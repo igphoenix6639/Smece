@@ -2,11 +2,16 @@ const http = require('http')
 const Utils = require('./utils.js')
 
 const server = http.createServer((req,res) =>{
-    let url = Utils.sanitize(req.url)
-
+    let url = Utils.sanitizer(req.url)
+    
     switch(url){
         case "":
             res.end("Main page")
+            break;
+        case "ff":
+            let c = new (require("./" + url + "Controller.js"))()
+            let methodname = req.method.toLowerCase() + url
+            c[methodname](req,res)
             break;
         default:
             res.end("Default crap")

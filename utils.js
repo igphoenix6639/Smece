@@ -1,3 +1,4 @@
+const Url = require('url');
 class utils{
     static sanitizer(url){
         if(url[0]=='/'){
