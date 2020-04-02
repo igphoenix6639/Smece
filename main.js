@@ -1,5 +1,5 @@
 const http = require('http')
-const Utils = require('utils.js')
+const Utils = require('./utils.js')
 
 const server = http.createServer((req,res) =>{
     let url = Utils.sanitize(req.url)
